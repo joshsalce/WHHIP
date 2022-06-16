@@ -14,3 +14,7 @@ After checking stats on Fangraphs, all hard-hit balls hit into play are classifi
 Therefore, I corrected this to include the number of hard-hits according to Fangraphs into my formula.
 
 I also corrected a small error 6/15/22 that left out balls hit at 95.0 mph exactly, by simplying changing to a >= sign rather than just >.
+
+
+Results (6/16/22): WHIP correlates better to ERA than both WHHIP and WHHIP.v2, but WHHIP.v2 correlates best to FIP, slightly edging out 
+WHIP by 0.05.
