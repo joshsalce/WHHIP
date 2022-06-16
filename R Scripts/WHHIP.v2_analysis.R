@@ -83,7 +83,7 @@ legend(x='bottomright', legend=paste('Cor =',WHHIP.v2_ERA_cor))
 
 
 # Correlation of WHHIP.v2 to FIP
-WHHIP.v2_FIP_cor = round(cor(WHHIP.v2_filt$FIP, WHHIP.v2_filt$WHHIP), 2)
+WHHIP.v2_FIP_cor = round(cor(WHHIP.v2_filt$WHHIP, WHHIP.v2_filt$FIP), 2)
 
 plot(WHHIP.v2_filt$WHHIP, WHHIP.v2_filt$FIP, 
      xlab="WHHIP.v2", ylab = "FIP", 
@@ -95,6 +95,22 @@ abline(Model4, col = "brown")
 legend("topleft",legend=paste("R^2 is", format(summary(Model4)$r.squared,digits=3)))
 legend(x='bottomright', legend=paste('Cor =',WHHIP.v2_FIP_cor))
 
+
+# WHHIP.v2 to SIERA
+WHHIP.v2_SIERA_cor = round(cor(WHHIP.v2_filt$WHHIP, WHHIP.v2_filt$SIERA), 2)
+
+plot(WHHIP.v2_filt$WHHIP, WHHIP.v2_filt$SIERA, 
+     xlab="WHHIP.v2", ylab = "SIERA", 
+     main = "Correlation Plot from WHHIP.v2 to SIERA",
+     pch = 16)
+
+Model8 <- lm(WHHIP.v2_filt$SIERA ~ WHHIP.v2_filt$WHHIP)
+abline(Model8, col = "salmon")
+legend("topleft",legend=paste("R^2 is", format(summary(Model8)$r.squared,digits=3)))
+legend(x='bottomright', legend=paste('Cor =',WHHIP.v2_SIERA_cor))
+
+
+################################################################################
 
 
 
@@ -113,7 +129,6 @@ legend("topleft",legend=paste("R^2 is", format(summary(Model3)$r.squared,digits=
 legend(x='bottomright', legend=paste('Cor =',WHIP_ERA_cor))
 
 
-
 #WHIP to FIP
 WHIP_FIP_cor = round(cor(WHHIP.v2_filt$WHIP, WHHIP.v2_filt$FIP), 2)
 
@@ -126,4 +141,20 @@ Model6 <- lm(WHHIP.v2_filt$FIP ~ WHHIP.v2_filt$WHIP)
 abline(Model6, col = "forestgreen")
 legend("topleft",legend=paste("R^2 is", format(summary(Model6)$r.squared,digits=3)))
 legend(x='bottomright', legend=paste('Cor =',WHIP_FIP_cor))
+
+
+
+#WHIP to SIERA
+WHIP_SIERA_cor = round(cor(WHHIP.v2_filt$WHIP, WHHIP.v2_filt$SIERA), 2)
+
+plot(WHHIP.v2_filt$WHIP, WHHIP.v2_filt$SIERA, 
+     xlab="WHIP", ylab = "SIERA", 
+     main = "Correlation Plot from WHIP to SIERA",
+     pch = 16)
+
+Model7 <- lm(WHHIP.v2_filt$SIERA ~ WHHIP.v2_filt$WHIP)
+abline(Model7, col = "lightblue")
+legend("topleft",legend=paste("R^2 is", format(summary(Model7)$r.squared,digits=3)))
+legend(x='bottomright', legend=paste('Cor =',WHIP_SIERA_cor))
+
 

@@ -86,7 +86,7 @@ legend(x='bottomright', legend=paste('Cor =',WHHIP_ERA_cor))
 
 
 # WHHIP to FIP
-WHHIP_FIP_cor = round(cor(WHHIP.v2_filt$FIP, WHHIP_filt$WHHIP), 2)
+WHHIP_FIP_cor = round(cor(WHHIP_filt$WHHIP, WHHIP.v2_filt$FIP), 2)
 
 plot(WHHIP_filt$WHHIP, WHHIP.v2_filt$FIP, 
      xlab="WHHIP", ylab = "FIP", 
@@ -97,3 +97,18 @@ Model5 <- lm(WHHIP.v2_filt$FIP ~ WHHIP_filt$WHHIP)
 abline(Model5, col = "turquoise")
 legend("topleft",legend=paste("R^2 is", format(summary(Model5)$r.squared,digits=3)))
 legend(x='bottomright', legend=paste('Cor =',WHHIP_FIP_cor))
+
+
+
+# WHHIP to SIERA
+WHHIP_SIERA_cor = round(cor(WHHIP_filt$WHHIP, WHHIP.v2_filt$SIERA), 2)
+
+plot(WHHIP_filt$WHHIP, WHHIP.v2_filt$SIERA, 
+     xlab="WHHIP", ylab = "SIERA", 
+     main = "Correlation Plot from WHHIP to SIERA",
+     pch = 16)
+
+Model9 <- lm(WHHIP.v2_filt$SIERA ~ WHHIP_filt$WHHIP)
+abline(Model9, col = "hotpink")
+legend("topleft",legend=paste("R^2 is", format(summary(Model9)$r.squared,digits=3)))
+legend(x='bottomright', legend=paste('Cor =',WHHIP_SIERA_cor))
